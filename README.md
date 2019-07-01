@@ -1,6 +1,6 @@
-# Web Testing IV Guided Project
+# Node Server Testing
 
-Guided project for **Web Testing IV** Module.
+Guided project for **Node Server Testing** Module.
 
 ## Project Setup
 
@@ -13,9 +13,9 @@ Please follow along as the instructor add automated tests to the API.
 
 ## How to Contribute
 
-- clone the [starter code](https://github.com/LambdaSchool/webtesting-iv-guided).
+- clone the [starter code](https://github.com/LambdaSchool/node-server-testing-guided).
 - create a solution branch: `git checkout -b solution`.
-- add this repository as a remote: `git remote add solution https://github.com/LambdaSchool/webtesting-iv-guided-solution`
+- add this repository as a remote: `git remote add solution https://github.com/LambdaSchool/node-server-testing-guided-solution`
 - pull from this repository's `master` branch into the `solution` branch in your local folder `git pull solution master:solution --force`.
 
 A this point you should have a `master` branch pointing to the student's repository and a `solution` branch with the latest changes added to the solution repository.
@@ -26,24 +26,20 @@ When making changes to the `master` branch, commit the changes and use `git push
 
 ## Introduce the Module Challenge
 
-Take time to explain what is expected from the [module challenge](https://github.com/LambdaSchool/webtesting-iv-challenge), and provide hints about what to test.
+Take time to explain what is expected from the [module challenge](https://github.com/LambdaSchool/node-server-testing-challenge), and provide hints about what to test.
 
 ## Introduce the Guided Project
 
-Introduce the [guided project](https://github.com/LambdaSchool/webtesting-iv-guided).
+Introduce the [guided project](https://github.com/LambdaSchool/node-server-testing-guided).
 
 - fork and clone it.
 - install dependencies.
 - run it to make sure there are no errors.
 
-**wait for students to catch up**
-
 ## Add .env File to Root Folder
 
 - open `index.js`, note that we're ready to support environment variables.
 - add empty `.env`, we'll use it later.
-
-**wait for students to catch up**
 
 ## Change Jest Environment to Node
 
@@ -59,8 +55,6 @@ Explain that `Jest` runs in browser mode using `jsdom`, for server testing we ne
 
 **restart the server/test if they were running** for the changes to take effect.
 
-**wait for students to catch up**
-
 ## Introduce cross-env
 
 Explain what `cross-env` does in the `test` script inside `package.json`.
@@ -69,14 +63,10 @@ Explain what `cross-env` does in the `test` script inside `package.json`.
 - open `knexfile.js` and show we have separate configurations for testing and development.
 - open the `data` folder and show that we have separate databases to go with the configurations.
 
-**take time to answer questions**
-
 ## Pass Environment Flag to Knex Migrations and Seeding
 
 - delete the test database.
 - run the command `npx knex migrate:latest --env=testing` and explain how it works in tandem with the configuration defined inside `knexfile.js`.
-
-**wait for students to catch up**
 
 ## Avoid Address in Use Errors When Running Tests
 
@@ -101,8 +91,6 @@ describe('sever.js', () => {
   });
 });
 ```
-
-**wait for students to catch up**
 
 We're going to use `supertest` to test:
 
@@ -140,8 +128,6 @@ describe('sever.js', () => {
 });
 ```
 
-**wait for students to catch up**
-
 ## Test that and Endpoint Returns the Correct Format (JSON)
 
 ```js
@@ -152,8 +138,6 @@ it('should return JSON', async () => {
 });
 ```
 
-**wait for students to catch up**
-
 ## Test the Shape of the Response Body
 
 ```js
@@ -163,10 +147,6 @@ it('should return { api: "up" }', async () => {
   expect(res.body).toEqual({ api: 'up' });
 });
 ```
-
-**wait for students to catch up**
-
-**time for a break? Take 5 minutes**
 
 ## Write End to End Tests that Involve the Database
 
@@ -207,8 +187,6 @@ async function insert(hobbit) {
 }
 ```
 
-**wait for students to catch up**
-
 What if the insert is failing and the tests pass because there are other hobbits already in the database? let's add another test.
 
 ```js
@@ -233,8 +211,6 @@ beforeEach(async () => {
 });
 ```
 
-**wait for students to catch up**
-
 Do another review of how everything works together.
 
-**Emphasize that all of these inserts target the test database (test.db3)**, running the server will show the data from the `hobbits.db3` database.
+**All inserts target the test database (test.db3)**, running the server will show the data from the `hobbits.db3` database.
